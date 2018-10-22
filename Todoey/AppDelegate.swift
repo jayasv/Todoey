@@ -5,8 +5,9 @@
 //  Created by user142012 on 10/6/18.
 //  Copyright © 2018 user142012. All rights reserved.
 //
-
 import UIKit
+import RealmSwift
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-      // print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
-        // Override point for customization after application launch.
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
+        
+//        let data = Data()
+//        data.name = "asd"
+//        data.age = 12
+//
+        do {
+            let realm = try Realm()
+            
+        } catch {
+            print("Error initialising new Realm \(error)")
+        }
         return true
     }
 
@@ -40,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+       
     }
 
 
